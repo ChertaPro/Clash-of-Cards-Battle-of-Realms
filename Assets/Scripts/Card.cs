@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 [System.Serializable]
 
-public class Card 
+public class Card  
 {
     public int id;
     public string cardname;
@@ -11,6 +11,7 @@ public class Card
     public char? attack_type;
     public int? power;
     public string effect;
+    public Sprite spriteimage;
 
 
     public Card()
@@ -18,7 +19,7 @@ public class Card
 
     }
 
-    public Card(int Id, string Cardname,string Cardtype, char? Attack_type,int? Power,string Effect)
+    public Card(int Id, string Cardname,string Cardtype, char? Attack_type,int? Power,string Effect,Sprite Spriteimage)
     {
         this.id = Id;
         this.cardname = Cardname;
@@ -26,6 +27,7 @@ public class Card
         this.attack_type = Attack_type;
         this.power = Power;
         this.effect = Effect;
+        this.spriteimage = Spriteimage;
     }
     
 }

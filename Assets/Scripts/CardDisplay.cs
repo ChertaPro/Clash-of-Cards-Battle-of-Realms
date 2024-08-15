@@ -15,22 +15,28 @@ public class CardDisplay : MonoBehaviour
     public char? attack_type;
     public int? power;
     public string effect;
+    public Sprite spriteimage;
+
+    public Image show;
 
 
     // Start is called before the first frame update
     void Start()
     {
         displaycard = CardDatabase.cards[displayid];
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
         id = displaycard.id;
         cardname = displaycard.cardname;
         cardtype = displaycard.cardtype;
         attack_type = displaycard.attack_type;
         power = displaycard.power;
         effect = displaycard.effect;
+        spriteimage = displaycard.spriteimage;
+        show.sprite = spriteimage;
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        
     }
 }
