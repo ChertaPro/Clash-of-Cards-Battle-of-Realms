@@ -23,6 +23,16 @@ public class CardDisplay : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Display();
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
+    void Display()
+    {
         displaycard = CardDatabase.cards[displayid];
         id = displaycard.id;
         cardname = displaycard.cardname;
@@ -32,11 +42,5 @@ public class CardDisplay : MonoBehaviour
         effect = displaycard.effect;
         spriteimage = displaycard.spriteimage;
         show.sprite = spriteimage;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }
