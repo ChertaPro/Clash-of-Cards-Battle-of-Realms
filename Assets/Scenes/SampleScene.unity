@@ -835,10 +835,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 865322282}
     m_Modifications:
+    - target: {fileID: 310774912481045573, guid: 4c62ccd384b782a44b622fe81d96adb8, type: 3}
+      propertyPath: cardback
+      value: 
+      objectReference: {fileID: 554578537}
+    - target: {fileID: 2425759001431638145, guid: 4c62ccd384b782a44b622fe81d96adb8, type: 3}
+      propertyPath: crcardback
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2425759001431638145, guid: 4c62ccd384b782a44b622fe81d96adb8, type: 3}
+      propertyPath: coccardback
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4613628615341995896, guid: 4c62ccd384b782a44b622fe81d96adb8, type: 3}
       propertyPath: m_Name
       value: Card
       objectReference: {fileID: 0}
+    - target: {fileID: 5269996301323648679, guid: 4c62ccd384b782a44b622fe81d96adb8, type: 3}
+      propertyPath: cardback
+      value: 
+      objectReference: {fileID: 1383294919}
     - target: {fileID: 9040734143069585231, guid: 4c62ccd384b782a44b622fe81d96adb8, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5

@@ -18,6 +18,10 @@ public class CardDisplay : MonoBehaviour
     public Sprite spriteimage;
 
     public Image show;
+    public bool coccardback;
+    public bool crcardback;
+    public static bool cocstaticcardback;
+    public static bool crstaticcardback;
 
 
     // Start is called before the first frame update
@@ -29,7 +33,8 @@ public class CardDisplay : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        cocstaticcardback = coccardback;
+        crstaticcardback = crcardback;
     }
     void Display()
     {
@@ -43,4 +48,5 @@ public class CardDisplay : MonoBehaviour
         spriteimage = displaycard.spriteimage;
         show.sprite = spriteimage;
     }
+
 }
