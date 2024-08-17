@@ -10,6 +10,7 @@ public class COCDeck : MonoBehaviour
     public List<Card> Deck1 = new List<Card>();
     public List<int> Ids = new List<int>{1,2,3,4,4,4,5,5,5,6,6,6,7,7,7,8,8,8,9,10,11,12,13,14,15,16};
     public int randomid;
+    public GameObject top1, top2, top3;
 
     // Start is called before the first frame update
     void Start()
@@ -21,7 +22,7 @@ public class COCDeck : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        TopDeck();  
     }
     void Shuffle(List<int> Ids)
     {
@@ -46,6 +47,22 @@ public class COCDeck : MonoBehaviour
                     Deck1.Add(CardDatabase.cards[j]);
                 }
             }
+        }
+    }
+
+    void TopDeck()
+    {
+        if(Deck1.Count<15)
+        {
+            top1.SetActive(false);
+        }
+        if(Deck1.Count<8)
+        {
+            top2.SetActive(false);
+        }
+        if(Deck1.Count<1)
+        {
+            top3.SetActive(false);
         }
     }
 }
