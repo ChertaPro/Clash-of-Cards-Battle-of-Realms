@@ -36,7 +36,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 32, y: 44}
+  m_SizeDelta: {x: 80, y: 115}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6342201859239013968
 CanvasRenderer:
@@ -91,8 +91,8 @@ GameObject:
   - component: {fileID: 5269996301323648679}
   - component: {fileID: 310774912481045573}
   m_Layer: 5
-  m_Name: Card
-  m_TagString: Untagged
+  m_Name: COCCardToHand
+  m_TagString: COCHandCard
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -118,7 +118,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 160.7, y: -70.4}
-  m_SizeDelta: {x: 32, y: 44}
+  m_SizeDelta: {x: 80, y: 115}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6138403459738755590
 CanvasRenderer:
@@ -185,6 +185,7 @@ MonoBehaviour:
   show: {fileID: 3956793302685574169}
   coccardback: 0
   crcardback: 0
+  Hand: {fileID: 0}
 --- !u!114 &5269996301323648679
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -252,11 +253,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5448697095848638550, guid: c9915610ae3ad6e48a22deb895e72bb7, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 32
+      value: 80
       objectReference: {fileID: 0}
     - target: {fileID: 5448697095848638550, guid: c9915610ae3ad6e48a22deb895e72bb7, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 44
+      value: 115
       objectReference: {fileID: 0}
     - target: {fileID: 5448697095848638550, guid: c9915610ae3ad6e48a22deb895e72bb7, type: 3}
       propertyPath: m_LocalPosition.x
@@ -359,11 +360,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1456652931774519419, guid: 7826399b9c60d6343bc60aaf3354c146, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 32
+      value: 80
       objectReference: {fileID: 0}
     - target: {fileID: 1456652931774519419, guid: 7826399b9c60d6343bc60aaf3354c146, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 44
+      value: 115
       objectReference: {fileID: 0}
     - target: {fileID: 1456652931774519419, guid: 7826399b9c60d6343bc60aaf3354c146, type: 3}
       propertyPath: m_LocalPosition.x
