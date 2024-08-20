@@ -7,6 +7,12 @@ public class DrawCards : MonoBehaviour
 {
     public GameObject Drawcard;
     public  GameObject Hand;
+    public List<Card> COCHandCards = new List<Card>();
+    public List<Card> CRHandCards = new List<Card>();
+
+    public static List<Card> staticCOCHandcards = new List<Card>();
+    public static List<Card> staticCRHandcards = new List<Card>();
+
 
     void Start()
     {
@@ -15,7 +21,8 @@ public class DrawCards : MonoBehaviour
 
     void Update()
     {
-        
+        COCHandCards = staticCOCHandcards;
+        CRHandCards = staticCRHandcards;
     }
 
     void Draw()

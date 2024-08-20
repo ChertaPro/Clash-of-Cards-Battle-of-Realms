@@ -53,7 +53,7 @@ public class CRDeck : MonoBehaviour
 //**----------------------------------------------
     void TopDeck()
     {
-        if(Deck2.Count<15)
+        if(Deck2.Count<20)
         {
             top1.SetActive(false);
         }

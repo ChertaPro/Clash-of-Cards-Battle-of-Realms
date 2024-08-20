@@ -69,6 +69,7 @@ public class CardDisplay : MonoBehaviour
         if (this.tag == "COCHandCard")
         {
             displayid = COCDeck.Staticdeck1[0].id;
+            DrawCards.staticCOCHandcards.Add(COCDeck.Staticdeck1[0]);
             COCDeck.Staticdeck1.RemoveAt(0);
             coccardback = false;
             crcardback = false;
@@ -87,6 +88,7 @@ public class CardDisplay : MonoBehaviour
         if (this.tag == "CRHandCard")
         {
             displayid = CRDeck.Staticdeck2[0].id;
+            DrawCards.staticCRHandcards.Add(CRDeck.Staticdeck2[0]);
             CRDeck.Staticdeck2.RemoveAt(0);
             coccardback = false;
             crcardback = false;
