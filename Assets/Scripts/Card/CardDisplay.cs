@@ -26,19 +26,18 @@ public class CardDisplay : MonoBehaviour
     public static bool cocstaticcardback;
     public static bool crstaticcardback;
 //**-------------------Hand---------------------------------------
-    public GameObject Hand;
+    public GameObject COCHand;
+    public GameObject CRHand;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        DisplayHand();
     }
 
     // Update is called once per frame
     void Update()
     {
-        COCDisplayHand();
-        CRDisplayHand();
         Display();
         cocstaticcardback = coccardback;
         crstaticcardback = crcardback;
@@ -57,42 +56,25 @@ public class CardDisplay : MonoBehaviour
         show.sprite = spriteimage;
     }
 
-    void COCDisplayHand()
+    void DisplayHand()
     {
-        Hand = GameObject.Find("COCHand");
-        if (this.transform.parent == Hand.transform.parent)
-        {
-            coccardback = false;
-            crcardback = false;
-        }
-
-        if (this.tag == "COCHandCard")
+        COCHand = GameObject.Find("COCHand");
+        CRHand = GameObject.Find("CRHand");
+        if (this.transform.parent == COCHand.transform)
         {
             displayid = COCDeck.Staticdeck1[0].id;
             DrawCards.staticCOCHandcards.Add(COCDeck.Staticdeck1[0]);
             COCDeck.Staticdeck1.RemoveAt(0);
             coccardback = false;
-            crcardback = false;
-            this.tag = "Untagged";
+            crcardback = false;            
         }
-    }
-    void CRDisplayHand()
-    {
-        Hand = GameObject.Find("CRHand");
-        if (this.transform.parent == Hand.transform.parent)
-        {
-            coccardback = false;
-            crcardback = false;
-        }
-
-        if (this.tag == "CRHandCard")
+        if (this.transform.parent == CRHand.transform)
         {
             displayid = CRDeck.Staticdeck2[0].id;
             DrawCards.staticCRHandcards.Add(CRDeck.Staticdeck2[0]);
             CRDeck.Staticdeck2.RemoveAt(0);
             coccardback = false;
             crcardback = false;
-            this.tag = "Untagged";
         }
     }
 }

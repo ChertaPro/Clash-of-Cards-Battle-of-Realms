@@ -1309,8 +1309,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8720ca82e81d18f46a3f986f4ae4f3b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Drawcard: {fileID: 4613628615341995896, guid: d3c7c974854ce1a47a3c6f32373cdb2a, type: 3}
+  Drawcard: {fileID: 4613628615341995896, guid: 4c62ccd384b782a44b622fe81d96adb8, type: 3}
   Hand: {fileID: 1014466544}
+  COCHandCards: []
+  CRHandCards: []
 --- !u!114 &1014466549
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1774,7 +1776,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed0fdd881209b894dab8b862234b769c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  turn: 0
   turntext: {fileID: 1019161949}
   endturn: 0
 --- !u!4 &1422889127
@@ -2019,8 +2020,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8720ca82e81d18f46a3f986f4ae4f3b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Drawcard: {fileID: 4613628615341995896, guid: 8f5d24e79b4c1b14992c957135810e7b, type: 3}
+  Drawcard: {fileID: 4613628615341995896, guid: 4c62ccd384b782a44b622fe81d96adb8, type: 3}
   Hand: {fileID: 1800432316}
+  COCHandCards: []
+  CRHandCards: []
 --- !u!1 &1902730202 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4613628615341995896, guid: 2434bf8dd6234bf498e5fd5f76ae3f20, type: 3}

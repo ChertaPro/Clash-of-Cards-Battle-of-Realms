@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class TurnSystem : MonoBehaviour
 {   
-    public bool turn ;
+    public static bool turn ;
     public TextMeshProUGUI turntext;
     public int endturn;
     // Start is called before the first frame update
