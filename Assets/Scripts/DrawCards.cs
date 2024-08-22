@@ -7,11 +7,11 @@ public class DrawCards : MonoBehaviour
 {
     public GameObject Drawcard;
     public  GameObject Hand;
-    public List<Card> COCHandCards = new List<Card>();
-    public List<Card> CRHandCards = new List<Card>();
+    public List<GameObject> COCHandCards = new List<GameObject>();
+    public List<GameObject> CRHandCards = new List<GameObject>();
 
-    public static List<Card> staticCOCHandcards = new List<Card>();
-    public static List<Card> staticCRHandcards = new List<Card>();
+    public static List<GameObject> staticCOCHandcards = new List<GameObject>();
+    public static List<GameObject> staticCRHandcards = new List<GameObject>();
 
 
     void Start()
