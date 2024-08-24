@@ -26,10 +26,9 @@ public class DrawCards : MonoBehaviour
     }
 
     void Draw()
-    {    
+    {        
         GameObject playercard = Instantiate(Drawcard,new Vector3(0, 0, 0), Quaternion.identity);
         playercard.transform.SetParent(Hand.transform,false);
-
     }
 
     // Corrutina que llama a Draw con un delay de 1 segundo entre cada llamada
@@ -38,7 +37,7 @@ public class DrawCards : MonoBehaviour
         for (int i = 0; i < 10; i++)
         {       
             Draw();
-            yield return new WaitForSeconds(1f); // Espera 1 segundo antes de continuar con el siguiente ciclo
+            yield return new WaitForSeconds(0.3f); // Espera 1 segundo antes de continuar con el siguiente ciclo
         }
     }
 }
