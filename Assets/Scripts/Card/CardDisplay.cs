@@ -45,6 +45,8 @@ public class CardDisplay : MonoBehaviour
     }
     void Display()
     {
+        COCHand = GameObject.Find("COCHand");
+        CRHand = GameObject.Find("CRHand");
         displaycard = CardDatabase.cards[displayid];
         id = displaycard.id;
         cardname = displaycard.cardname;
@@ -54,6 +56,24 @@ public class CardDisplay : MonoBehaviour
         effect = displaycard.effect;
         spriteimage = displaycard.spriteimage;
         show.sprite = spriteimage;
+        if (TurnSystem.turn && gameObject.transform.parent == CRHand.transform)
+        {
+            crcardback = true;
+        }
+        if (TurnSystem.turn && gameObject.transform.parent == COCHand.transform)
+        {
+            coccardback = false;
+            crcardback = false;
+        }
+        if (!TurnSystem.turn && gameObject.transform.parent == COCHand.transform)
+        {
+            coccardback = true;
+        }
+        if (!TurnSystem.turn && gameObject.transform.parent == CRHand.transform)
+        {
+            coccardback = false;
+            crcardback = false;
+        }
     }
 
     void DisplayHand()

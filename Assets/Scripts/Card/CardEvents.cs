@@ -26,7 +26,7 @@ public class CardEvents : MonoBehaviour
         GameObject COCHand = GameObject.Find("COCHand");
         GameObject CRHand = GameObject.Find("CRHand");
 
-        if (Playercard.transform.parent == COCHand.transform)
+        if (Playercard.transform.parent == COCHand.transform && TurnSystem.turn )
         {
             CardDisplay cardDisplay = Playercard.GetComponent<CardDisplay>();
             if (cardDisplay.attack_type == 'M' )
@@ -67,9 +67,11 @@ public class CardEvents : MonoBehaviour
             {
 
             }
+            TurnSystem.turn = !TurnSystem.turn;
+
         }
 
-        if (Playercard.transform.parent == CRHand.transform)
+        if (Playercard.transform.parent == CRHand.transform && !TurnSystem.turn)
         {
             CardDisplay cardDisplay = Playercard.GetComponent<CardDisplay>();
             if (cardDisplay.attack_type == 'M' )
@@ -109,6 +111,7 @@ public class CardEvents : MonoBehaviour
             {
                 
             }
+            TurnSystem.turn = !TurnSystem.turn;
         }
     }
 }
