@@ -1,17 +1,26 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
+using TMPro;
+using Unity.VisualScripting.Antlr3.Runtime.Misc;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CardEvents : MonoBehaviour
 {
     public GameObject Playercard;
-
     [HideInInspector]
     public GameObject Field;
-
     public List<string> COCaumentos = new List<string>();
-    public List<string> CRaumentos = new List<string>();
+    public List<string> CRaumentos = new List<string>();    
+    
+    public GameObject Cardstats;
+    public TextMeshProUGUI Powerstat;
+    public Image Cardimage;
+
+    
+
+
     private void Start() 
     {
         COCaumentos.Add("COCAumento (M)");
@@ -26,7 +35,7 @@ public class CardEvents : MonoBehaviour
         GameObject COCHand = GameObject.Find("COCHand");
         GameObject CRHand = GameObject.Find("CRHand");
 
-        if (Playercard.transform.parent == COCHand.transform && TurnSystem.turn )
+        if (Playercard.transform.parent == COCHand.transform && TurnSystem.turn ==1 )
         {
             CardDisplay cardDisplay = Playercard.GetComponent<CardDisplay>();
             if (cardDisplay.attack_type == 'M' )
@@ -67,11 +76,11 @@ public class CardEvents : MonoBehaviour
             {
 
             }
-            TurnSystem.turn = !TurnSystem.turn;
+            TurnSystem.turn = 0;
 
         }
 
-        if (Playercard.transform.parent == CRHand.transform && !TurnSystem.turn)
+        if (Playercard.transform.parent == CRHand.transform && TurnSystem.turn == 0)
         {
             CardDisplay cardDisplay = Playercard.GetComponent<CardDisplay>();
             if (cardDisplay.attack_type == 'M' )
@@ -111,7 +120,34 @@ public class CardEvents : MonoBehaviour
             {
                 
             }
-            TurnSystem.turn = !TurnSystem.turn;
+            TurnSystem.turn = 1;
         }
     }
+
+    public void HoverEnter()
+    {
+        Cardstats = GameObject.Find("Stats");
+        GameObject COCHand = GameObject.Find("COCHand");
+        GameObject CRHand = GameObject.Find("CRHand");
+        Cardimage = Cardstats.GetComponent<Image>();
+        GameObject hideObject = Cardstats.transform.Find("Hide")?.gameObject;
+        Powerstat = hideObject.transform.Find("Power")?.GetComponent<TextMeshProUGUI>();
+
+
+        if (Playercard.transform.parent != CRHand.transform && TurnSystem.turn ==1 )
+        {
+            CardDisplay stats= Playercard.GetComponent<CardDisplay>();
+            Cardimage.sprite = stats.spriteimage;
+            Powerstat.text = stats.power.ToString();
+        }
+        if (Playercard.transform.parent != COCHand.transform && TurnSystem.turn == 0)
+        {
+            CardDisplay stats= Playercard.GetComponent<CardDisplay>();
+            Cardimage.sprite = stats.spriteimage;
+            Powerstat.text = stats.power.ToString();
+        }
+        
+    }
+
+    
 }

@@ -6,43 +6,73 @@ using UnityEngine.UI;
 
 public class TurnSystem : MonoBehaviour
 {   
-    public static bool turn ;
+    public static int turn ;
     public TextMeshProUGUI turntext;
-    public int endturn;
+    public bool COCturn;
+    public bool CRturn;
+
     // Start is called before the first frame update
     void Start()
     {
-        turn = true;
+        turn = 1;
+        COCturn = false;
+        CRturn = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (turn)
-        {
-            turntext.text = "Player 1";
-        }
-        else
-        {
-            turntext.text = "Player 2";
-        }
+        TextButton();
+        Endturn();
+
     }
 
     public void Pass()
     {
-        if (turn)
+        if (turn == 1)
         {
-            turn = false;
+            turn = 0;
+            COCturn = true;
         }
-        else
+        else if (turn == 0)
         {
-            turn = true;
+            turn = 1;
+            CRturn = true;
         }
 
-        endturn ++;
-        if (endturn == 2)
-        {
+    }
 
+    void TextButton()
+    {
+        if (turn == 1)
+        {
+            turntext.text = "Player 1";
+        }
+        else if (turn == 0)
+        {
+            turntext.text = "Player 2";
+        }
+        else if (turn == 2)
+        {
+            turntext.text = "END";
+        }
+    }
+
+    void Endturn()
+    {
+        if(COCturn && !CRturn)
+        {
+            turn = 0;
+        }
+
+        if (CRturn && !COCturn)
+        {
+            turn = 1;
+        }
+
+        if (COCturn && CRturn)
+        {
+            turn = 2;
         }
     }
 }

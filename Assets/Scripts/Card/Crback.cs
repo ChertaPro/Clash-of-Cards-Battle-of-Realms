@@ -23,7 +23,7 @@ public class Crback : MonoBehaviour
         {
             cardback.SetActive(true);
         }
-        else
+        else if (!CardDisplay.crstaticcardback)
         {
             cardback.SetActive(false);
         }

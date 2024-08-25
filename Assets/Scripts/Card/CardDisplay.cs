@@ -41,6 +41,7 @@ public class CardDisplay : MonoBehaviour
         Display();
         cocstaticcardback = coccardback;
         crstaticcardback = crcardback;
+        DisplayCardBack();
 
     }
     void Display()
@@ -56,24 +57,7 @@ public class CardDisplay : MonoBehaviour
         effect = displaycard.effect;
         spriteimage = displaycard.spriteimage;
         show.sprite = spriteimage;
-        if (TurnSystem.turn && gameObject.transform.parent == CRHand.transform)
-        {
-            crcardback = true;
-        }
-        if (TurnSystem.turn && gameObject.transform.parent == COCHand.transform)
-        {
-            coccardback = false;
-            crcardback = false;
-        }
-        if (!TurnSystem.turn && gameObject.transform.parent == COCHand.transform)
-        {
-            coccardback = true;
-        }
-        if (!TurnSystem.turn && gameObject.transform.parent == CRHand.transform)
-        {
-            coccardback = false;
-            crcardback = false;
-        }
+        
     }
 
     void DisplayHand()
@@ -99,6 +83,35 @@ public class CardDisplay : MonoBehaviour
             CRDeck.Staticdeck2.RemoveAt(0);
             coccardback = false;
             crcardback = false;
+        }
+    }
+    void DisplayCardBack()
+    {
+        if (TurnSystem.turn == 1 && gameObject.transform.parent == CRHand.transform)
+        {
+            crcardback = true;
+        }
+        if (TurnSystem.turn == 1 && gameObject.transform.parent == COCHand.transform)
+        {
+            coccardback = false;
+            crcardback = false;
+        }
+        if (TurnSystem.turn == 0 && gameObject.transform.parent == COCHand.transform)
+        {
+            coccardback = true;
+        }
+        if (TurnSystem.turn == 0 && gameObject.transform.parent == CRHand.transform)
+        {
+            coccardback = false;
+            crcardback = false;
+        }
+        if (TurnSystem.turn == 2 && gameObject.transform.parent == COCHand.transform)
+        {
+            coccardback = true;
+        }
+        if (TurnSystem.turn == 2 && gameObject.transform.parent == CRHand.transform)
+        {
+            crcardback = true;
         }
     }
 }
