@@ -6,6 +6,8 @@ using UnityEngine;
 public class CardDatabase : MonoBehaviour
 {
     public static List<Card> cards = new List<Card>();
+    
+
 
     void Awake()
     {
@@ -42,5 +44,7 @@ public class CardDatabase : MonoBehaviour
     {
         
     }
+
+    
 
 }

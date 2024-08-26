@@ -25,22 +25,24 @@ public class GameController : MonoBehaviour
         PowerCounter();
     }
 
-    void Draw()
+    public void COCDraw()
     {   
         COCHand = GameObject.Find("COCHand"); 
-        CRHand = GameObject.Find("CRHand");    
         GameObject COCcard = Instantiate(card,new Vector3(0, 0, 0), Quaternion.identity);
         COCcard.transform.SetParent(COCHand.transform,false);
+    }
+    public void CRDraw()
+    {
+        CRHand = GameObject.Find("CRHand");
         GameObject CRcard = Instantiate(card,new Vector3(0, 0, 0), Quaternion.identity);
-        CRcard.transform.SetParent(CRHand.transform,false);
-
-        
+        CRcard.transform.SetParent(CRHand.transform,false); 
     }
     IEnumerator DrawCardsWithDelay()
     {
         for (int i = 0; i < 10; i++)
         {       
-            Draw();
+            COCDraw();
+            CRDraw();
             yield return new WaitForSeconds(0.3f); // Espera 1 segundo antes de continuar con el siguiente ciclo
         }
     }

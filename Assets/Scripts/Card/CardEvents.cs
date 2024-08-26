@@ -34,9 +34,12 @@ public class CardEvents : MonoBehaviour
     {
         GameObject COCHand = GameObject.Find("COCHand");
         GameObject CRHand = GameObject.Find("CRHand");
-
+        CardDisplay keyword = Playercard.GetComponent<CardDisplay>();
+        Effects activate = Playercard.GetComponent<Effects>();
+                
         if (Playercard.transform.parent == COCHand.transform && TurnSystem.turn ==1 )
         {
+            activate.Effect(keyword.effect,Playercard);
             CardDisplay cardDisplay = Playercard.GetComponent<CardDisplay>();
             if (cardDisplay.attack_type == 'M' )
             {
@@ -63,7 +66,6 @@ public class CardEvents : MonoBehaviour
                 List<string> aumentos = COCaumentos;
                 int random;
                 random = Random.Range(0, aumentos.Count);
-                Debug.Log(random);
                 Field = GameObject.Find(aumentos[random]);
                 Playercard.transform.SetParent(Field.transform, false);
                 COCaumentos.RemoveAt(random);
@@ -76,12 +78,14 @@ public class CardEvents : MonoBehaviour
             {
 
             }
+            
             TurnSystem.turn = 0;
 
         }
 
         if (Playercard.transform.parent == CRHand.transform && TurnSystem.turn == 0)
         {
+            activate.Effect(keyword.effect,Playercard);
             CardDisplay cardDisplay = Playercard.GetComponent<CardDisplay>();
             if (cardDisplay.attack_type == 'M' )
             {
@@ -132,6 +136,7 @@ public class CardEvents : MonoBehaviour
         Cardimage = Cardstats.GetComponent<Image>();
         GameObject hideObject = Cardstats.transform.Find("Hide")?.gameObject;
         Powerstat = hideObject.transform.Find("Power")?.GetComponent<TextMeshProUGUI>();
+        
 
 
         if (Playercard.transform.parent != CRHand.transform && TurnSystem.turn ==1 )
