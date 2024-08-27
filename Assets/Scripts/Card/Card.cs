@@ -12,6 +12,8 @@ public class Card
     public int? power;
     public string effect;
     public Sprite spriteimage;
+    public bool climabool;
+    public bool aumentobool;
 
 
     public Card()
@@ -19,7 +21,7 @@ public class Card
 
     }
 
-    public Card(int Id, string Cardname,string Cardtype, char? Attack_type,int? Power,string Effect,Sprite Spriteimage)
+    public Card(int Id, string Cardname,string Cardtype, char? Attack_type,int? Power,string Effect,Sprite Spriteimage,bool Climabool,bool Aumentobool)
     {
         this.id = Id;
         this.cardname = Cardname;
@@ -28,6 +30,8 @@ public class Card
         this.power = Power;
         this.effect = Effect;
         this.spriteimage = Spriteimage;
+        this.climabool = Climabool;
+        this.aumentobool = Aumentobool;
     }
     
 }

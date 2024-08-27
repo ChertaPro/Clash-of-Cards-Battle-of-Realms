@@ -20,19 +20,23 @@ public class CardDisplay : MonoBehaviour
 
     public Image show;
 
-//**-------------------CardBack---------------------------------------
+//**-------------------CardBack----------------------------------------
     public bool coccardback;
     public bool crcardback;
     public static bool cocstaticcardback;
     public static bool crstaticcardback;
-//**-------------------Hand---------------------------------------
+//**-------------------Hand--------------------------------------------
     public GameObject COCHand;
     public GameObject CRHand;
+//**-------------------Effects----------------------------------------- 
+    public bool climabool;
+    public bool aumentobool; 
 
     // Start is called before the first frame update
     void Start()
     {
         DisplayHand();
+
     }
 
     // Update is called once per frame
@@ -57,6 +61,8 @@ public class CardDisplay : MonoBehaviour
         effect = displaycard.effect;
         spriteimage = displaycard.spriteimage;
         show.sprite = spriteimage;
+        climabool = displaycard.climabool;
+        aumentobool = displaycard.aumentobool;
         
     }
 

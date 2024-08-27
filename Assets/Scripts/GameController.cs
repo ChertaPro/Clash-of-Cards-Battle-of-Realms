@@ -8,6 +8,7 @@ public class GameController : MonoBehaviour
     public GameObject card;
     public GameObject COCHand;
     public GameObject CRHand;
+    public GameObject ClimaZone;
 
     public TextMeshProUGUI COCPowerCounter;
     public TextMeshProUGUI CRPowerCounter;
@@ -17,12 +18,14 @@ public class GameController : MonoBehaviour
     void Start()
     {
         StartCoroutine("DrawCardsWithDelay");
+        ClimaZone = GameObject.Find("ClimaZone");
     }
 
     // Update is called once per frame
     void Update()
     {
         PowerCounter();
+        Clima();
     }
 
     public void COCDraw()
@@ -94,7 +97,18 @@ public class GameController : MonoBehaviour
         }
     }
 
-
+    void Clima()
+    {
+        if (ClimaZone.transform.childCount > 0)
+        {
+            foreach (Transform clima in ClimaZone.transform)
+            {
+                CardDisplay keyword = clima.GetComponent<CardDisplay>();
+                Effects activate = clima.GetComponent<Effects>();
+                activate.Effect(keyword.effect,clima.gameObject);
+            }
+        }    
+    }
 
 
 }
