@@ -331,5 +331,85 @@ public class Effects : MonoBehaviour
                 }
             }
         }
+
+        if (keyword == "señuelo")
+        {
+            List<Transform> transforms = new List<Transform>();
+            if(go.transform.parent == COCHand.transform)
+            {
+                for(int i = 0;i<3;i++)
+                {
+                    Field = GameObject.Find(zones[i]);
+                    if(Field.transform.childCount > 0)
+                    {
+                        foreach(Transform card in Field.transform)
+                        {
+                            transforms.Add(card);
+                        }
+                    }
+                }
+                if(transforms.Count > 0)
+                {
+                    int random;
+                    random = Random.Range(0,transforms.Count);
+                    transforms[random].SetParent(COCHand.transform,false);
+                }
+                GameObject graveyard = GameObject.Find("COCGraveyard");
+                go.transform.SetParent(graveyard.transform,false);
+            }
+            if(go.transform.parent == CRHand.transform)
+            {
+                for(int i = 0;i<3;i++)
+                {
+                    Field = GameObject.Find(zones[i+3]);
+                    if(Field.transform.childCount > 0)
+                    {
+                        foreach(Transform card in Field.transform)
+                        {
+                            transforms.Add(card);
+                        }
+                    }
+                }
+                if(transforms.Count > 0)
+                {
+                    int random;
+                    random = Random.Range(0,transforms.Count);
+                    transforms[random].SetParent(CRHand.transform,false);
+                }
+                GameObject graveyard = GameObject.Find("CRGraveyard");
+                go.transform.SetParent(graveyard.transform,false);
+            }
+        }
+
+        if (keyword == "despeje")
+        {
+            Field = GameObject.Find("ClimaZone");
+            if(go.transform.parent == COCHand.transform)
+            {
+                GameObject graveyard = GameObject.Find("COCGraveyard");
+                if(Field.transform.childCount > 0)
+                {
+                    int random;
+                    random = Random.Range(0,Field.transform.childCount);
+                    Field.transform.GetChild(random).SetParent(graveyard.transform,false);
+                    //Meter corrutina mayor de 3f
+                    
+                }
+                go.transform.SetParent(graveyard.transform,false);
+            }
+            if(go.transform.parent == CRHand.transform)
+            {
+                GameObject graveyard = GameObject.Find("CRGraveyard");
+                if(Field.transform.childCount > 0)
+                {
+                    int random;
+                    random = Random.Range(0,Field.transform.childCount);
+                    Field.transform.GetChild(random).SetParent(graveyard.transform,false);
+                }
+                go.transform.SetParent(graveyard.transform,false);
+            }
+            
+            
+        }
     }
 }

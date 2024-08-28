@@ -130,7 +130,51 @@ public class CardDisplay : MonoBehaviour
             CardDatabase.cards[displayid].power = backuppower[displayid];
             CardDatabase.cards[displayid].aumentobool = true;
             CardDatabase.cards[displayid].climabool = true;
-            Destroy(gameObject,3f);
+            Destroy(gameObject,1.3f);
+        }
+        if (gameObject.transform.parent == COCGraveyard.transform && effect == "melee")
+        {
+            foreach(Card card in CardDatabase.cards)
+            {
+                if (card.attack_type =='M')
+                {
+                    card.climabool = true;
+                    card.power = backuppower[card.id];
+                }
+            }
+        }
+        if (gameObject.transform.parent == COCGraveyard.transform && effect == "range")
+        {
+            foreach(Card card in CardDatabase.cards)
+            {
+                if (card.attack_type =='R')
+                {
+                    card.climabool = true;
+                    card.power = backuppower[card.id];
+                }
+            }
+        }
+        if (gameObject.transform.parent == CRGraveyard.transform && effect == "melee")
+        {
+            foreach(Card card in CardDatabase.cards)
+            {
+                if (card.attack_type =='M')
+                {
+                    card.climabool = true;
+                    card.power = backuppower[card.id];
+                }
+            }
+        }
+        if (gameObject.transform.parent == CRGraveyard.transform && effect == "range")
+        {
+            foreach(Card card in CardDatabase.cards)
+            {
+                if (card.attack_type =='R')
+                {
+                    card.climabool = true;
+                    card.power = backuppower[card.id];
+                }
+            }
         }
     }
 }
