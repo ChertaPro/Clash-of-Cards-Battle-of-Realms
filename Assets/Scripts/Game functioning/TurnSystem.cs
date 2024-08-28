@@ -10,10 +10,32 @@ public class TurnSystem : MonoBehaviour
     public TextMeshProUGUI turntext;
     public bool COCturn;
     public bool CRturn;
+    public GameController gamecontroller;
+    public GameObject Field;
+    public List<string> zones = new List<string>();
+    public int intcocwins;
+    public int intcrwins;
+    public TextMeshProUGUI COCWins;
+    public TextMeshProUGUI CRWins;
+    
 
     // Start is called before the first frame update
     void Start()
     {
+        gamecontroller = GameObject.Find("GameController").GetComponent<GameController>();
+        zones.Add("COCMelee");
+        zones.Add("COCRange");
+        zones.Add("COCSiege");
+        zones.Add("CRMelee");
+        zones.Add("CRRange");
+        zones.Add("CRSiege");
+        zones.Add("COCAumento (M)");
+        zones.Add("COCAumento (R)");
+        zones.Add("COCAumento (S)");
+        zones.Add("CRAumento (M)");
+        zones.Add("CRAumento (R)");
+        zones.Add("CRAumento (S)");
+        zones.Add("ClimaZone");
         turn = 1;
         COCturn = false;
         CRturn = false;
@@ -24,6 +46,8 @@ public class TurnSystem : MonoBehaviour
     {
         TextButton();
         Endturn();
+        EndRound();
+        Stop();
 
     }
 
@@ -73,6 +97,71 @@ public class TurnSystem : MonoBehaviour
         if (COCturn && CRturn)
         {
             turn = 2;
+        }
+    }
+
+    void EndRound()
+    {
+        if(turn == 2)
+        {
+            gamecontroller.COCDraw();
+            gamecontroller.CRDraw();
+            gamecontroller.COCDraw();
+            gamecontroller.CRDraw();
+            Winner();
+            DestroyCards();
+            COCturn = false;
+            CRturn = false;
+        }
+    }
+    void DestroyCards()
+    {
+        foreach (string zone in zones)
+            {
+                Field = GameObject.Find(zone);
+                if (Field.transform.childCount > 0)
+                {
+                    foreach(Transform card in Field.transform)
+                    {
+                        Destroy(card.gameObject);
+                    }
+                }
+            }
+    }
+
+    void Winner()
+    {
+        if (GameController.staticCOCpower > GameController.staticCRpower)
+        {
+            intcocwins+=1;
+            COCWins.text ="Wins : " + intcocwins.ToString();
+            turn = 1;
+        }
+        if (GameController.staticCOCpower < GameController.staticCRpower)
+        {
+            intcrwins+=1;
+            CRWins.text = "Wins : " + intcrwins.ToString();
+            turn = 0;
+        }
+        if (GameController.staticCOCpower == GameController.staticCRpower)
+        {
+            intcocwins+=1;
+            intcrwins+=1;
+            COCWins.text = "Wins : "+ intcocwins.ToString();
+            CRWins.text =  "Wins : " + intcrwins.ToString();
+            turn = 1;
+        }
+    }
+
+    void Stop()
+    {
+        if (intcocwins == 2 )
+        {
+            Debug.Log("Algo pa que se pare el juego");
+        }
+        if (intcrwins == 2)
+        {
+            Debug.Log("Algo pa que se pare el juego");
         }
     }
 }

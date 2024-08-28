@@ -13,6 +13,10 @@ public class GameController : MonoBehaviour
     public List<string> aumentos = new List<string>();
     public TextMeshProUGUI COCPowerCounter;
     public TextMeshProUGUI CRPowerCounter;
+    public int? COCpower;
+    public int? CRpower;
+    public static int? staticCOCpower;
+    public static int? staticCRpower;
 
 
     // Start is called before the first frame update
@@ -34,6 +38,8 @@ public class GameController : MonoBehaviour
         PowerCounter();
         Clima();
         Aumento();
+        staticCOCpower = COCpower;
+        staticCRpower = CRpower;
     }
 
     public void COCDraw()
@@ -73,8 +79,8 @@ public class GameController : MonoBehaviour
         COCPowerCounter = goCOCPowerCounter.GetComponent<TextMeshProUGUI>();
         CRPowerCounter = goCRPowerCounter.GetComponent<TextMeshProUGUI>();
 
-        int? COCpower = 0;
-        int? CRpower = 0;
+        COCpower = 0;
+        CRpower = 0;
 
         COCpower += SumPower(COCMelee);
         COCpower += SumPower(COCRange);
