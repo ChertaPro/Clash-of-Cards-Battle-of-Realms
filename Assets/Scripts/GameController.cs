@@ -9,7 +9,8 @@ public class GameController : MonoBehaviour
     public GameObject COCHand;
     public GameObject CRHand;
     public GameObject ClimaZone;
-
+    public GameObject Field;
+    public List<string> aumentos = new List<string>();
     public TextMeshProUGUI COCPowerCounter;
     public TextMeshProUGUI CRPowerCounter;
 
@@ -19,6 +20,12 @@ public class GameController : MonoBehaviour
     {
         StartCoroutine("DrawCardsWithDelay");
         ClimaZone = GameObject.Find("ClimaZone");
+        aumentos.Add("COCAumento (M)");
+        aumentos.Add("COCAumento (R)");
+        aumentos.Add("COCAumento (S)");
+        aumentos.Add("CRAumento (M)");
+        aumentos.Add("CRAumento (R)");
+        aumentos.Add("CRAumento (S)");
     }
 
     // Update is called once per frame
@@ -26,6 +33,7 @@ public class GameController : MonoBehaviour
     {
         PowerCounter();
         Clima();
+        Aumento();
     }
 
     public void COCDraw()
@@ -108,6 +116,20 @@ public class GameController : MonoBehaviour
                 activate.Effect(keyword.effect,clima.gameObject);
             }
         }    
+    }
+    void Aumento()
+    {
+        foreach(string aumento in aumentos)
+        {
+            Field = GameObject.Find(aumento);
+            if (Field.transform.childCount > 0)
+            {
+                Transform child = Field.transform.GetChild(0);
+                CardDisplay keyword = child.GetComponent<CardDisplay>();
+                Effects activate = child.GetComponent<Effects>();
+                activate.Effect(keyword.effect,child.gameObject);
+            }
+        }
     }
 
 

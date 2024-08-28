@@ -257,5 +257,79 @@ public class Effects : MonoBehaviour
             }    
 
         }
+
+        if (keyword == "range")
+        {
+            Field = GameObject.Find(zones[1]);
+            Field2 = GameObject.Find(zones[4]);
+            if (Field.transform.childCount > 0)
+            {
+                foreach (Transform card in Field.transform)
+                {
+                    CardDisplay clima = card.GetComponent<CardDisplay>();
+                    if(clima.climabool)
+                    {
+                        CardDatabase.cards[clima.displayid].power -=2;
+                        CardDatabase.cards[clima.displayid].climabool = false;
+                    }
+                }
+            }
+            if (Field2.transform.childCount > 0)
+            {
+                foreach (Transform card in Field2.transform)
+                {
+                    CardDisplay clima = card.GetComponent<CardDisplay>();
+                    if(clima.climabool)
+                    {
+                        CardDatabase.cards[clima.displayid].power -=2;
+                        CardDatabase.cards[clima.displayid].climabool = false;
+                    }
+                }
+            }
+        }
+
+        if (keyword == "bonus")
+        {
+            for (int i = 0;i<3;i++)
+            {
+                Field = GameObject.Find(COCaumentos[i]);
+                if (go.transform.parent == Field.transform)
+                {
+                    Field2 = GameObject.Find(zones[i]);
+                    if(Field2.transform.childCount > 0)
+                    {
+                        foreach(Transform card in Field2.transform)
+                        {
+                            CardDisplay aum = card.GetComponent<CardDisplay>();
+                            if(aum.aumentobool)
+                            {
+                                CardDatabase.cards[aum.displayid].power += 2;
+                                CardDatabase.cards[aum.displayid].aumentobool = false;
+                            }
+                        }
+                    }
+                }
+            }
+            for (int i = 0;i<3;i++)
+            {
+                Field = GameObject.Find(CRaumentos[i]);
+                if (go.transform.parent == Field.transform)
+                {
+                    Field2 = GameObject.Find(zones[i+3]);
+                    if(Field2.transform.childCount > 0)
+                    {
+                        foreach(Transform card in Field2.transform)
+                        {
+                            CardDisplay aum = card.GetComponent<CardDisplay>();
+                            if(aum.aumentobool)
+                            {
+                                CardDatabase.cards[aum.displayid].power += 2;
+                                CardDatabase.cards[aum.displayid].aumentobool = false;
+                            }
+                        }
+                    }
+                }
+            }
+        }
     }
 }

@@ -30,22 +30,27 @@ public class CardDisplay : MonoBehaviour
     public GameObject CRHand;
 //**-------------------Effects----------------------------------------- 
     public bool climabool;
-    public bool aumentobool; 
+    public bool aumentobool;
+    public List<int?> backuppower = new List<int?>{null,9,7,8,4,6,6,4,7,null,null,null,null,null,null,0,0,null,8,10,7,5,6,4,5,null,null}; 
+    
 
     // Start is called before the first frame update
     void Start()
     {
         DisplayHand();
+        
 
     }
 
     // Update is called once per frame
     void Update()
     {
+        
         Display();
         cocstaticcardback = coccardback;
         crstaticcardback = crcardback;
         DisplayCardBack();
+        Gaveyard();
 
     }
     void Display()
@@ -114,6 +119,18 @@ public class CardDisplay : MonoBehaviour
         if (TurnSystem.turn == 2 && gameObject.transform.parent == CRHand.transform)
         {
             crcardback = true;
+        }
+    }
+    void Gaveyard()
+    {
+        GameObject COCGraveyard = GameObject.Find("COCGraveyard");
+        GameObject CRGraveyard = GameObject.Find("CRGraveyard");
+        if (gameObject.transform.parent == COCGraveyard.transform || gameObject.transform.parent == CRGraveyard.transform)
+        {
+            CardDatabase.cards[displayid].power = backuppower[displayid];
+            CardDatabase.cards[displayid].aumentobool = true;
+            CardDatabase.cards[displayid].climabool = true;
+            Destroy(gameObject,3f);
         }
     }
 }
