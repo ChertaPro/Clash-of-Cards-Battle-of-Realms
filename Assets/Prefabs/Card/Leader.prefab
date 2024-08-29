@@ -90,6 +90,7 @@ GameObject:
   - component: {fileID: 2425759001431638145}
   - component: {fileID: 610286510658696504}
   - component: {fileID: 3926467674138607386}
+  - component: {fileID: 7436069927336392402}
   m_Layer: 5
   m_Name: Leader
   m_TagString: Untagged
@@ -174,6 +175,8 @@ MonoBehaviour:
     cardtype: 
     effect: 
     spriteimage: {fileID: 0}
+    climabool: 0
+    aumentobool: 0
   displayid: 0
   id: 0
   cardname: 
@@ -185,6 +188,9 @@ MonoBehaviour:
   crcardback: 0
   COCHand: {fileID: 0}
   CRHand: {fileID: 0}
+  climabool: 0
+  aumentobool: 0
+  keepingbool: 0
 --- !u!114 &610286510658696504
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -242,8 +248,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76fc5ba1b18c60b42a34a482f1a5dbad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Playercard: {fileID: 0}
   COCLeader: {fileID: 0}
   CRLeader: {fileID: 0}
   Cardstats: {fileID: 0}
   Powerstat: {fileID: 0}
   Cardimage: {fileID: 0}
+--- !u!114 &7436069927336392402
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4613628615341995896}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9624ed55131744649abdc8b7b581303f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clone: {fileID: 0}
+  gamecontroller: {fileID: 0}
+  COCHand: {fileID: 0}
+  CRHand: {fileID: 0}
+  Field: {fileID: 0}
+  Field2: {fileID: 0}
+  COCaumentos: []
+  CRaumentos: []
+  zones: []

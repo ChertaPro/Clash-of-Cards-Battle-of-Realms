@@ -17,12 +17,17 @@ public class TurnSystem : MonoBehaviour
     public int intcrwins;
     public TextMeshProUGUI COCWins;
     public TextMeshProUGUI CRWins;
+    public GameObject EndGamePanel;
+    public TextMeshProUGUI Winnertext;
+
     
 
     // Start is called before the first frame update
     void Start()
     {
         gamecontroller = GameObject.Find("GameController").GetComponent<GameController>();
+        EndGamePanel = GameObject.Find("End");
+        EndGamePanel.SetActive(false);
         zones.Add("COCMelee");
         zones.Add("COCRange");
         zones.Add("COCSiege");
@@ -123,7 +128,11 @@ public class TurnSystem : MonoBehaviour
                 {
                     foreach(Transform card in Field.transform)
                     {
-                        Destroy(card.gameObject);
+                        CardDisplay keep = card.GetComponent<CardDisplay>();
+                        if (!keep.keepingbool)
+                        {
+                            Destroy(card.gameObject);
+                        }
                     }
                 }
             }
@@ -136,12 +145,16 @@ public class TurnSystem : MonoBehaviour
             intcocwins+=1;
             COCWins.text ="Wins : " + intcocwins.ToString();
             turn = 1;
+            LeaderEvents.COCLeaderEffect = true;
+            LeaderEvents.CRLeaderEffect = true;
         }
         if (GameController.staticCOCpower < GameController.staticCRpower)
         {
             intcrwins+=1;
             CRWins.text = "Wins : " + intcrwins.ToString();
             turn = 0;
+            LeaderEvents.COCLeaderEffect = true;
+            LeaderEvents.CRLeaderEffect = true;
         }
         if (GameController.staticCOCpower == GameController.staticCRpower)
         {
@@ -150,6 +163,8 @@ public class TurnSystem : MonoBehaviour
             COCWins.text = "Wins : "+ intcocwins.ToString();
             CRWins.text =  "Wins : " + intcrwins.ToString();
             turn = 1;
+            LeaderEvents.COCLeaderEffect = true;
+            LeaderEvents.CRLeaderEffect = true;
         }
     }
 
@@ -157,11 +172,18 @@ public class TurnSystem : MonoBehaviour
     {
         if (intcocwins == 2 )
         {
-            Debug.Log("Algo pa que se pare el juego");
+            EndGamePanel.SetActive(true);
+            Winnertext.text = "Clash of Clans Wins";
         }
         if (intcrwins == 2)
         {
-            Debug.Log("Algo pa que se pare el juego");
+            EndGamePanel.SetActive(true);
+            Winnertext.text = "Clash Royale Wins";
+        }
+        if (intcrwins == 2 && intcocwins == 2)
+        {
+            EndGamePanel.SetActive(true);
+            Winnertext.text = "It's a Tie";
         }
     }
 }

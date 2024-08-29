@@ -42,12 +42,36 @@ public class Effects : MonoBehaviour
     {
         if (keyword == "mantener")
         {
-            Debug.Log("Mantener");
+            Field2 = GameObject.Find("COCLeader");
+            List<Transform> transforms = new List<Transform>();
+            if(go.transform.parent == Field2.transform)
+            {
+                for(int i = 0;i<3;i++)
+                {
+                    Field = GameObject.Find(zones[i]);
+                    if(Field.transform.childCount > 0)
+                    {
+                        foreach(Transform card in Field.transform)
+                        {
+                            transforms.Add(card);
+                        }
+                    }
+                }
+                if(transforms.Count > 0)
+                {
+                    int random;
+                    random = Random.Range(0,transforms.Count);
+                    CardDisplay keep = transforms[random].GetComponent<CardDisplay>();
+                    keep.keepingbool = true;
+                }
+                
+            }
         }
 
         if (keyword == "roba")
         { 
-
+            Debug.Log("A");
+            Field = GameObject.Find("CRLeader");
             if( go.transform.parent == COCHand.transform)   
             {
                 gamecontroller.COCDraw();
@@ -56,6 +80,11 @@ public class Effects : MonoBehaviour
             if (go.transform.parent == CRHand.transform)
             {
                 gamecontroller.CRDraw();
+            }
+            if (go.transform == Field.transform)
+            {
+                gamecontroller.CRDraw();
+                Debug.Log("B");
             }
         }
 

@@ -32,12 +32,13 @@ public class CardDisplay : MonoBehaviour
     public bool climabool;
     public bool aumentobool;
     public List<int?> backuppower = new List<int?>{null,9,7,8,4,6,6,4,7,null,null,null,null,null,null,0,0,null,8,10,7,5,6,4,5,null,null}; 
-    
+    public bool keepingbool;
 
     // Start is called before the first frame update
     void Start()
     {
         DisplayHand();
+        keepingbool = false;
         
 
     }
@@ -45,7 +46,6 @@ public class CardDisplay : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
         Display();
         cocstaticcardback = coccardback;
         crstaticcardback = crcardback;
