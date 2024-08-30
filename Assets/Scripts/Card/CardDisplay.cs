@@ -176,5 +176,13 @@ public class CardDisplay : MonoBehaviour
                 }
             }
         }
+        if (gameObject.transform.parent != COCGraveyard && effect == "bonus")
+        {
+            foreach(Card card in CardDatabase.cards)
+            {
+                card.aumentobool = true;
+                card.power = backuppower[card.id];
+            }
+        }
     }
 }

@@ -70,7 +70,6 @@ public class Effects : MonoBehaviour
 
         if (keyword == "roba")
         { 
-            Debug.Log("A");
             Field = GameObject.Find("CRLeader");
             if( go.transform.parent == COCHand.transform)   
             {

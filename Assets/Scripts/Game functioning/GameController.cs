@@ -22,6 +22,8 @@ public class GameController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        COCHand = GameObject.Find("COCHand");
+        CRHand = GameObject.Find("CRHand");
         StartCoroutine("DrawCardsWithDelay");
         ClimaZone = GameObject.Find("ClimaZone");
         aumentos.Add("COCAumento (M)");
@@ -38,19 +40,18 @@ public class GameController : MonoBehaviour
         PowerCounter();
         Clima();
         Aumento();
+        CardCounter();
         staticCOCpower = COCpower;
         staticCRpower = CRpower;
     }
 
     public void COCDraw()
     {   
-        COCHand = GameObject.Find("COCHand"); 
         GameObject COCcard = Instantiate(card,new Vector3(0, 0, 0), Quaternion.identity);
         COCcard.transform.SetParent(COCHand.transform,false);
     }
     public void CRDraw()
     {
-        CRHand = GameObject.Find("CRHand");
         GameObject CRcard = Instantiate(card,new Vector3(0, 0, 0), Quaternion.identity);
         CRcard.transform.SetParent(CRHand.transform,false); 
     }
@@ -138,5 +139,26 @@ public class GameController : MonoBehaviour
         }
     }
 
+    void CardCounter()
+    {
+        int COC = 0;
+        int CR = 0;
+        foreach(Transform card in COCHand.transform)
+        {
+            COC += 1;
+            if (COC > 10)
+            {
+                Destroy(card.gameObject,1.5f);
+            }
+        }
+        foreach(Transform card in CRHand.transform)
+        {
+            CR += 1;
+            if (CR > 10)
+            {
+                Destroy(card.gameObject,1.5f);
+            }
+        }
+    }
 
 }
