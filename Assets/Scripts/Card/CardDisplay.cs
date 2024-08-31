@@ -123,6 +123,7 @@ public class CardDisplay : MonoBehaviour
     }
     void Gaveyard()
     {
+        
         GameObject COCGraveyard = GameObject.Find("COCGraveyard");
         GameObject CRGraveyard = GameObject.Find("CRGraveyard");
         if (gameObject.transform.parent == COCGraveyard.transform || gameObject.transform.parent == CRGraveyard.transform)
@@ -140,6 +141,7 @@ public class CardDisplay : MonoBehaviour
                 {
                     card.climabool = true;
                     card.power = backuppower[card.id];
+                    Destroy(gameObject,1.3f);
                 }
             }
         }
@@ -151,6 +153,7 @@ public class CardDisplay : MonoBehaviour
                 {
                     card.climabool = true;
                     card.power = backuppower[card.id];
+                    Destroy(gameObject,1.3f);
                 }
             }
         }
@@ -162,6 +165,7 @@ public class CardDisplay : MonoBehaviour
                 {
                     card.climabool = true;
                     card.power = backuppower[card.id];
+                    Destroy(gameObject,1.3f);
                 }
             }
         }
@@ -173,15 +177,17 @@ public class CardDisplay : MonoBehaviour
                 {
                     card.climabool = true;
                     card.power = backuppower[card.id];
+                    Destroy(gameObject,1.3f);
                 }
             }
         }
-        if (gameObject.transform.parent != COCGraveyard && effect == "bonus")
+        if (gameObject.transform.parent == COCGraveyard && effect == "bonus")
         {
             foreach(Card card in CardDatabase.cards)
             {
                 card.aumentobool = true;
                 card.power = backuppower[card.id];
+                Destroy(gameObject,1.3f);
             }
         }
     }

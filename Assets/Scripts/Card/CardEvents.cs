@@ -11,8 +11,8 @@ public class CardEvents : MonoBehaviour
     public GameObject Playercard;
     [HideInInspector]
     public GameObject Field;
-    public List<string> COCaumentos = new List<string>();
-    public List<string> CRaumentos = new List<string>();    
+    public static List<string> COCaumentos = new List<string>();
+    public static List<string> CRaumentos = new List<string>();    
     
     public GameObject Cardstats;
     public TextMeshProUGUI Powerstat;
