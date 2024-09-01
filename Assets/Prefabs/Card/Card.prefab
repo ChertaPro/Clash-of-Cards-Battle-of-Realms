@@ -179,6 +179,8 @@ MonoBehaviour:
     cardtype: 
     effect: 
     spriteimage: {fileID: 0}
+    climabool: 0
+    aumentobool: 0
   displayid: 0
   id: 0
   cardname: 
@@ -190,6 +192,9 @@ MonoBehaviour:
   crcardback: 0
   COCHand: {fileID: 0}
   CRHand: {fileID: 0}
+  climabool: 0
+  aumentobool: 0
+  keepingbool: 0
 --- !u!114 &5269996301323648679
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -247,9 +252,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9624ed55131744649abdc8b7b581303f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cardPrefab: {fileID: 4613628615341995896}
+  clone: {fileID: 0}
+  gamecontroller: {fileID: 0}
   COCHand: {fileID: 0}
   CRHand: {fileID: 0}
+  Field: {fileID: 0}
+  Field2: {fileID: 0}
+  COCaumentos: []
+  CRaumentos: []
+  zones: []
 --- !u!114 &-5204327832501908021
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -286,22 +297,6 @@ MonoBehaviour:
         - m_Target: {fileID: 612845936427074004}
           m_TargetAssemblyTypeName: CardEvents, Assembly-CSharp
           m_MethodName: HoverEnter
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-  - eventID: 1
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 612845936427074004}
-          m_TargetAssemblyTypeName: CardEvents, Assembly-CSharp
-          m_MethodName: HoverExit
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}

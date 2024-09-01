@@ -70,7 +70,6 @@ public class Effects : MonoBehaviour
 
         if (keyword == "roba")
         { 
-            Debug.Log("A");
             Field = GameObject.Find("CRLeader");
             if( go.transform.parent == COCHand.transform)   
             {
@@ -97,12 +96,12 @@ public class Effects : MonoBehaviour
                     CardDisplay type = aumento.GetComponent<CardDisplay>();
                     if (type.cardtype == "Aumento")
                     {
-                        List<string> aumentos = COCaumentos;
+                        List<string> aumentos = CardEvents.COCaumentos;
                         int random ;
                         random = Random.Range(0, aumentos.Count);
                         Field = GameObject.Find(aumentos[random]);
                         aumento.transform.SetParent(Field.transform, false);
-                        COCaumentos.RemoveAt(random);
+                        CardEvents.COCaumentos.RemoveAt(random);
                         break;
                     }
                     
@@ -115,12 +114,12 @@ public class Effects : MonoBehaviour
                     CardDisplay type = aumento.GetComponent<CardDisplay>();
                     if (type.cardtype == "Aumento")
                     {
-                        List<string> aumentos = CRaumentos;
+                        List<string> aumentos = CardEvents.CRaumentos;
                         int random ;
                         random = Random.Range(0, aumentos.Count);
                         Field = GameObject.Find(aumentos[random]);
                         aumento.transform.SetParent(Field.transform, false);
-                        CRaumentos.RemoveAt(random);
+                        CardEvents.CRaumentos.RemoveAt(random);
                         break;
                     }
                     
@@ -298,6 +297,7 @@ public class Effects : MonoBehaviour
                     CardDisplay clima = card.GetComponent<CardDisplay>();
                     if(clima.climabool)
                     {
+                        Debug.Log("A");
                         CardDatabase.cards[clima.displayid].power -=2;
                         CardDatabase.cards[clima.displayid].climabool = false;
                     }
