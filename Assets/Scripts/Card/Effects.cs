@@ -297,7 +297,6 @@ public class Effects : MonoBehaviour
                     CardDisplay clima = card.GetComponent<CardDisplay>();
                     if(clima.climabool)
                     {
-                        Debug.Log("A");
                         CardDatabase.cards[clima.displayid].power -=2;
                         CardDatabase.cards[clima.displayid].climabool = false;
                     }

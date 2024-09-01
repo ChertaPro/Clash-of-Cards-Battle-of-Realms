@@ -132,7 +132,8 @@ public class TurnSystem : MonoBehaviour
                         CardDisplay keep = card.GetComponent<CardDisplay>();
                         if (!keep.keepingbool)
                         {
-                            Destroy(card.gameObject);
+                            card.SetParent(GameObject.Find("COCGraveyard").transform);
+                            Destroy(card.gameObject,0.5f);
                         }
                     }
                 }
