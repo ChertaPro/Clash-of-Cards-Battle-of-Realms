@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class TurnSystem : MonoBehaviour
@@ -174,16 +175,24 @@ public class TurnSystem : MonoBehaviour
         {
             EndGamePanel.SetActive(true);
             Winnertext.text = "Clash of Clans Wins";
+            StartCoroutine("ExitGame");
         }
         if (intcrwins == 2)
         {
             EndGamePanel.SetActive(true);
             Winnertext.text = "Clash Royale Wins";
+            StartCoroutine("ExitGame");
         }
         if (intcrwins == 2 && intcocwins == 2)
         {
             EndGamePanel.SetActive(true);
             Winnertext.text = "It's a Tie";
+            StartCoroutine("ExitGame");
         }
+    }
+    IEnumerator ExitGame()
+    {
+        yield return new WaitForSeconds(3);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
     }
 }
