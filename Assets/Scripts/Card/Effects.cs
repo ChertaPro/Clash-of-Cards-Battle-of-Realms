@@ -266,8 +266,8 @@ public class Effects : MonoBehaviour
                     CardDisplay clima = card.GetComponent<CardDisplay>();
                     if(clima.climabool)
                     {
-                        CardDatabase.cards[clima.displayid].power -=2;
                         CardDatabase.cards[clima.displayid].climabool = false;
+                        CardDatabase.cards[clima.displayid].power -=2;
                     }
                 }
             } 
@@ -278,8 +278,8 @@ public class Effects : MonoBehaviour
                     CardDisplay clima = card.GetComponent<CardDisplay>();
                     if(clima.climabool)
                     {
-                        CardDatabase.cards[clima.displayid].power -=2;
                         CardDatabase.cards[clima.displayid].climabool = false;
+                        CardDatabase.cards[clima.displayid].power -=2;
                     }
                 }
             }    
@@ -297,8 +297,8 @@ public class Effects : MonoBehaviour
                     CardDisplay clima = card.GetComponent<CardDisplay>();
                     if(clima.climabool)
                     {
-                        CardDatabase.cards[clima.displayid].power -=2;
                         CardDatabase.cards[clima.displayid].climabool = false;
+                        CardDatabase.cards[clima.displayid].power -=2;
                     }
                 }
             }
@@ -309,8 +309,8 @@ public class Effects : MonoBehaviour
                     CardDisplay clima = card.GetComponent<CardDisplay>();
                     if(clima.climabool)
                     {
-                        CardDatabase.cards[clima.displayid].power -=2;
                         CardDatabase.cards[clima.displayid].climabool = false;
+                        CardDatabase.cards[clima.displayid].power -=2;
                     }
                 }
             }
@@ -331,8 +331,8 @@ public class Effects : MonoBehaviour
                             CardDisplay aum = card.GetComponent<CardDisplay>();
                             if(aum.aumentobool)
                             {
-                                CardDatabase.cards[aum.displayid].power += 2;
                                 CardDatabase.cards[aum.displayid].aumentobool = false;
+                                CardDatabase.cards[aum.displayid].power += 2;
                             }
                         }
                     }
@@ -351,8 +351,8 @@ public class Effects : MonoBehaviour
                             CardDisplay aum = card.GetComponent<CardDisplay>();
                             if(aum.aumentobool)
                             {
-                                CardDatabase.cards[aum.displayid].power += 2;
                                 CardDatabase.cards[aum.displayid].aumentobool = false;
+                                CardDatabase.cards[aum.displayid].power += 2;
                             }
                         }
                     }
@@ -420,7 +420,6 @@ public class Effects : MonoBehaviour
                     int random;
                     random = Random.Range(0,Field.transform.childCount);
                     Field.transform.GetChild(random).SetParent(graveyard.transform,false);
-                    //Meter corrutina mayor de 3f
                     
                 }
                 go.transform.SetParent(graveyard.transform,false);
