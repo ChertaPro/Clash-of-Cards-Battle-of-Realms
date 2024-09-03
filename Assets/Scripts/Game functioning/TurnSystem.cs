@@ -14,6 +14,7 @@ public class TurnSystem : MonoBehaviour
     public GameController gamecontroller;
     public GameObject Field;
     public List<string> zones = new List<string>();
+    public GameObject keepobject;
     public int intcocwins;
     public int intcrwins;
     public TextMeshProUGUI COCWins;
@@ -52,7 +53,6 @@ public class TurnSystem : MonoBehaviour
     {
         TextButton();
         Endturn();
-        EndRound();
         Stop();
 
     }
@@ -103,41 +103,36 @@ public class TurnSystem : MonoBehaviour
         if (COCturn && CRturn)
         {
             turn = 2;
+            EndRound();
         }
-    }
+}
 
     void EndRound()
     {
-        if(turn == 2)
-        {
-            gamecontroller.COCDraw();
-            gamecontroller.CRDraw();
-            gamecontroller.COCDraw();
-            gamecontroller.CRDraw();
-            Winner();
-            DestroyCards();
-            COCturn = false;
-            CRturn = false;
-        }
+        gamecontroller.COCDraw();
+        gamecontroller.CRDraw();
+        gamecontroller.COCDraw();
+        gamecontroller.CRDraw();
+        Winner();
     }
     void DestroyCards()
     {
-        foreach (string zone in zones)
+        foreach(string zone in zones)
+        {
+            Field = GameObject.Find(zone);
+            if (Field.transform.childCount > 0)
             {
-                Field = GameObject.Find(zone);
-                if (Field.transform.childCount > 0)
+                foreach(Transform card in Field.transform)
                 {
-                    foreach(Transform card in Field.transform)
+                    CardDisplay keep = card.GetComponent<CardDisplay>();
+                    if (!keep.keepingbool)
                     {
-                        CardDisplay keep = card.GetComponent<CardDisplay>();
-                        if (!keep.keepingbool)
-                        {
-                            card.SetParent(GameObject.Find("COCGraveyard").transform);
-                            Destroy(card.gameObject,0.5f);
-                        }
+                        card.SetParent(GameObject.Find("COCGraveyard").transform);
                     }
                 }
             }
+        }
+        
     }
 
     void Winner()
@@ -146,17 +141,29 @@ public class TurnSystem : MonoBehaviour
         {
             intcocwins+=1;
             COCWins.text ="Wins : " + intcocwins.ToString();
-            turn = 1;
+            DestroyCards();
             LeaderEvents.COCLeaderEffect = true;
             LeaderEvents.CRLeaderEffect = true;
+            if(IsfiedEmpty())
+            {
+                COCturn = false;
+                CRturn = false;
+                turn = 1;
+            }
         }
         if (GameController.staticCOCpower < GameController.staticCRpower)
         {
             intcrwins+=1;
             CRWins.text = "Wins : " + intcrwins.ToString();
-            turn = 0;
+            DestroyCards();
             LeaderEvents.COCLeaderEffect = true;
             LeaderEvents.CRLeaderEffect = true;
+            if(IsfiedEmpty())
+            {
+                COCturn = false;
+                CRturn = false;
+                turn = 0;
+            }
         }
         if (GameController.staticCOCpower == GameController.staticCRpower)
         {
@@ -164,10 +171,33 @@ public class TurnSystem : MonoBehaviour
             intcrwins+=1;
             COCWins.text = "Wins : "+ intcocwins.ToString();
             CRWins.text =  "Wins : " + intcrwins.ToString();
-            turn = 1;
+            DestroyCards();
             LeaderEvents.COCLeaderEffect = true;
             LeaderEvents.CRLeaderEffect = true;
+            if(IsfiedEmpty())
+            {
+                COCturn = false;
+                CRturn = false;
+                turn = 1;
+            }            
         }
+    }
+
+    bool IsfiedEmpty()
+    {
+        foreach( string zone in zones)
+        {
+            Field = GameObject.Find(zone);
+            foreach(Transform card in Field.transform)
+            {
+                CardDisplay keep = card.GetComponent<CardDisplay>();
+                if(!keep.keepingbool)
+                {
+                    return false;
+                }
+            }
+        }
+        return true;
     }
 
     void Stop()

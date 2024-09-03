@@ -167,6 +167,7 @@ public class Effects : MonoBehaviour
                 GameObject COCgraveyard = GameObject.Find("COCGraveyard");
                 GameObject CRgraveyard = GameObject.Find("CRGraveyard");
                 Transform destroy = go.transform;
+                CardDisplay type = destroy.GetComponent<CardDisplay>();
                 
                 foreach (string zone in zones)
                 {
@@ -175,7 +176,7 @@ public class Effects : MonoBehaviour
                     {
                         CardDisplay power = card.GetComponent<CardDisplay>();
                         CardDisplay destroypower = destroy.GetComponent<CardDisplay>();
-                        if(power.power > destroypower.power)
+                        if(power.power > destroypower.power && power.cardtype != "Oro")
                         {
                             destroy = card;
                         }
@@ -184,7 +185,7 @@ public class Effects : MonoBehaviour
                 for (int i = 0;i<3;i++)
                 {
                     Field = GameObject.Find(zones[i]);
-                    if(destroy.parent == Field.transform || destroy.parent == COCHand.transform)
+                    if(destroy.parent == Field.transform || destroy.parent == COCHand.transform && type.cardtype != "Oro")
                     {
                         CardDisplay graveyard = destroy.GetComponent<CardDisplay>();
                         graveyard.attack_type = 'g';//Para que no tome ninguno de los valores de la funcion de click y le vuelvva a cambiar el padre a una row del trablero
@@ -195,7 +196,7 @@ public class Effects : MonoBehaviour
                 for (int i = 3;i<6;i++)
                 {
                     Field = GameObject.Find(zones[i]);
-                    if(destroy.parent == Field.transform || destroy.parent == CRHand.transform)
+                    if(destroy.parent == Field.transform || destroy.parent == CRHand.transform && type.cardtype != "Oro")
                     {
                         CardDisplay graveyard = destroy.GetComponent<CardDisplay>();
                         graveyard.attack_type = 'g';
@@ -222,7 +223,7 @@ public class Effects : MonoBehaviour
                     foreach (Transform card in Field.transform)
                     {
                         CardDisplay power = card.GetComponent<CardDisplay>();
-                        if(power.power < destroypower.power)
+                        if(power.power < destroypower.power && power.cardtype != "Oro")
                         {
                             destroypower.power = power.power;
                             destroy = card;
@@ -244,7 +245,7 @@ public class Effects : MonoBehaviour
                     foreach (Transform card in Field.transform)
                     {
                         CardDisplay power = card.GetComponent<CardDisplay>();
-                        if(power.power < destroypower.power)
+                        if(power.power < destroypower.power && power.cardtype != "Oro")
                         {
                             destroypower.power = power.power;
                             destroy = card;
@@ -264,7 +265,7 @@ public class Effects : MonoBehaviour
                 foreach (Transform card in Field.transform)
                 {
                     CardDisplay clima = card.GetComponent<CardDisplay>();
-                    if(clima.climabool)
+                    if(clima.climabool && clima.cardtype != "Oro")
                     {
                         CardDatabase.cards[clima.displayid].climabool = false;
                         CardDatabase.cards[clima.displayid].power -=2;
@@ -276,7 +277,7 @@ public class Effects : MonoBehaviour
                 foreach (Transform card in Field2.transform)
                 {
                     CardDisplay clima = card.GetComponent<CardDisplay>();
-                    if(clima.climabool)
+                    if(clima.climabool && clima.cardtype != "Oro")
                     {
                         CardDatabase.cards[clima.displayid].climabool = false;
                         CardDatabase.cards[clima.displayid].power -=2;
@@ -295,7 +296,7 @@ public class Effects : MonoBehaviour
                 foreach (Transform card in Field.transform)
                 {
                     CardDisplay clima = card.GetComponent<CardDisplay>();
-                    if(clima.climabool)
+                    if(clima.climabool && clima.cardtype != "Oro")
                     {
                         CardDatabase.cards[clima.displayid].climabool = false;
                         CardDatabase.cards[clima.displayid].power -=2;
@@ -307,7 +308,7 @@ public class Effects : MonoBehaviour
                 foreach (Transform card in Field2.transform)
                 {
                     CardDisplay clima = card.GetComponent<CardDisplay>();
-                    if(clima.climabool)
+                    if(clima.climabool && clima.cardtype != "Oro")
                     {
                         CardDatabase.cards[clima.displayid].climabool = false;
                         CardDatabase.cards[clima.displayid].power -=2;
@@ -329,7 +330,7 @@ public class Effects : MonoBehaviour
                         foreach(Transform card in Field2.transform)
                         {
                             CardDisplay aum = card.GetComponent<CardDisplay>();
-                            if(aum.aumentobool)
+                            if(aum.aumentobool && aum.cardtype != "Oro")
                             {
                                 CardDatabase.cards[aum.displayid].aumentobool = false;
                                 CardDatabase.cards[aum.displayid].power += 2;
@@ -349,7 +350,7 @@ public class Effects : MonoBehaviour
                         foreach(Transform card in Field2.transform)
                         {
                             CardDisplay aum = card.GetComponent<CardDisplay>();
-                            if(aum.aumentobool)
+                            if(aum.aumentobool && aum.cardtype != "Oro")
                             {
                                 CardDatabase.cards[aum.displayid].aumentobool = false;
                                 CardDatabase.cards[aum.displayid].power += 2;
@@ -372,7 +373,11 @@ public class Effects : MonoBehaviour
                     {
                         foreach(Transform card in Field.transform)
                         {
-                            transforms.Add(card);
+                            CardDisplay type = card.GetComponent<CardDisplay>();
+                            if (type.cardtype != "Oro")
+                            {
+                                transforms.Add(card);
+                            }
                         }
                     }
                 }
@@ -394,7 +399,11 @@ public class Effects : MonoBehaviour
                     {
                         foreach(Transform card in Field.transform)
                         {
-                            transforms.Add(card);
+                            CardDisplay type = card.GetComponent<CardDisplay>();
+                            if (type.cardtype != "Oro")
+                            {
+                                transforms.Add(card);
+                            }
                         }
                     }
                 }

@@ -12,9 +12,9 @@ public class CardDatabase : MonoBehaviour
     void Awake()
     {
         cards.Add(new Card(0,"Reina Arquera","Lider",null,null,"mantener",Resources.Load<Sprite>("0-Reina Arquera"),true,true));
-        cards.Add(new Card(1,"Pekka","Heroe",'M',9,"+poder",Resources.Load<Sprite>("1-Pekka"),true,true));
-        cards.Add(new Card(2,"Gran Centinela","Heroe",'R',7,"aumento",Resources.Load<Sprite>("2-Gran Centinela"),true,true));
-        cards.Add(new Card(3,"Rey Barbaro","Heroe",'M',8,"roba",Resources.Load<Sprite>("3-Rey Barbaro"),true,true));
+        cards.Add(new Card(1,"Pekka","Oro",'M',9,"+poder",Resources.Load<Sprite>("1-Pekka"),true,true));
+        cards.Add(new Card(2,"Gran Centinela","Oro",'R',7,"aumento",Resources.Load<Sprite>("2-Gran Centinela"),true,true));
+        cards.Add(new Card(3,"Rey Barbaro","Oro",'M',8,"roba",Resources.Load<Sprite>("3-Rey Barbaro"),true,true));
         cards.Add(new Card(4,"Lanzarrocas","Plata",'R',4,"roba",Resources.Load<Sprite>("4-Lanzarrocas"),true,true));
         cards.Add(new Card(5,"Montapuercos","Plata",'M',6,"-poder",Resources.Load<Sprite>("5-Montapuercos"),true,true));//*! Neutral
         cards.Add(new Card(6,"Bruja","Plata",'R',6,"+poder",Resources.Load<Sprite>("6-Bruja"),true,true));
@@ -29,9 +29,9 @@ public class CardDatabase : MonoBehaviour
         cards.Add(new Card(15,"Duende","Señuelo",null,0,"señuelo",Resources.Load<Sprite>("15-Duende"),true,true));//*! Neutral
         cards.Add(new Card(16,"Esbirro","Señuelo",null,0,"señuelo",Resources.Load<Sprite>("16-Esbirro"),true,true));//*! Neutral
         cards.Add(new Card(17,"Rey","Lider",null,null,"roba",Resources.Load<Sprite>("17-Rey"),true,true));
-        cards.Add(new Card(18,"Caballero dorado","Heroe",'M',8,"+poder",Resources.Load<Sprite>("18-Caballero Dorado"),true,true));
-        cards.Add(new Card(19,"Gigante electrico","Heroe",'M',10,"clima",Resources.Load<Sprite>("19-Gigante Electrico"),true,true));
-        cards.Add(new Card(20,"Gigante noble","Heroe",'R',7,"roba",Resources.Load<Sprite>("20-Gigante Noble"),true,true));
+        cards.Add(new Card(18,"Caballero dorado","Oro",'M',8,"+poder",Resources.Load<Sprite>("18-Caballero Dorado"),true,true));
+        cards.Add(new Card(19,"Gigante electrico","Oro",'M',10,"clima",Resources.Load<Sprite>("19-Gigante Electrico"),true,true));
+        cards.Add(new Card(20,"Gigante noble","Oro",'R',7,"roba",Resources.Load<Sprite>("20-Gigante Noble"),true,true));
         cards.Add(new Card(21,"Lanzafuegos","Plata",'R',5,"roba",Resources.Load<Sprite>("21-Lanzafuegos"),true,true));
         cards.Add(new Card(22,"Globo bombastico","Plata",'S',6,"+poder",Resources.Load<Sprite>("22-Globo Bombástico"),true,true));
         cards.Add(new Card(23,"Mosquetera","Plata",'R',4,"aumento",Resources.Load<Sprite>("23-Mosquetera"),true,true));
