@@ -268,6 +268,7 @@ public class Effects : MonoBehaviour
                     if(clima.climabool && clima.cardtype != "Oro")
                     {
                         CardDatabase.cards[clima.displayid].climabool = false;
+                        clima.climabool = false;
                         CardDatabase.cards[clima.displayid].power -=2;
                     }
                 }
@@ -280,6 +281,7 @@ public class Effects : MonoBehaviour
                     if(clima.climabool && clima.cardtype != "Oro")
                     {
                         CardDatabase.cards[clima.displayid].climabool = false;
+                        clima.climabool = false;
                         CardDatabase.cards[clima.displayid].power -=2;
                     }
                 }
@@ -299,6 +301,7 @@ public class Effects : MonoBehaviour
                     if(clima.climabool && clima.cardtype != "Oro")
                     {
                         CardDatabase.cards[clima.displayid].climabool = false;
+                        clima.climabool = false;
                         CardDatabase.cards[clima.displayid].power -=2;
                     }
                 }
@@ -311,6 +314,7 @@ public class Effects : MonoBehaviour
                     if(clima.climabool && clima.cardtype != "Oro")
                     {
                         CardDatabase.cards[clima.displayid].climabool = false;
+                        clima.climabool = false;
                         CardDatabase.cards[clima.displayid].power -=2;
                     }
                 }
